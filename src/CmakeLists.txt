@@ -29,6 +29,6 @@ endif()
 # 	set(CMAKE_EXE_LINKER_FLAGS_RELEASE "${CMAKE_EXE_LINKER_FLAGS} /SUBSYSTEM:WINDOWS /ENTRY:mainCRTStartup")
 # endif()
 
-add_executable(${PROJECT_NAME} main.cpp)
+add_executable(${PROJECT_NAME} main.cpp Game.cpp Application.cpp)
 
 target_link_libraries(${PROJECT_NAME} raylib)
