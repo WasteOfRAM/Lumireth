@@ -3,7 +3,7 @@ file(GLOB GRAPHICS "Graphics/*.cpp")
 set(SOURCES 
     Game.cpp 
     Application.cpp
-    GRAPHICS)
+    ${GRAPHICS})
 
 add_library(LumirethLib ${SOURCES})
 

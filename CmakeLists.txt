@@ -30,8 +30,13 @@ endif()
 # endif()
 
 add_subdirectory(src)
-add_subdirectory(src/Resources)
 
 add_executable(${PROJECT_NAME} src/main.cpp)
 
-target_link_libraries(${PROJECT_NAME} raylib LumirethLib)
+target_link_libraries(${PROJECT_NAME} LumirethLib)
+
+add_custom_command(
+    TARGET ${PROJECT_NAME} POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+    ${CMAKE_SOURCE_DIR}/src/Resources $<TARGET_FILE_DIR:${PROJECT_NAME}>/Resources
+)
