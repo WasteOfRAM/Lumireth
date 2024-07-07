@@ -1,6 +1,6 @@
 #include "Sprite.h"
 
-Lumireth::Sprite::Sprite(Texture2D spriteSheet, int spriteSheetRows, int spriteSheetCols)
+Lumireth::Sprite::Sprite(const Texture2D& spriteSheet, int spriteSheetRows, int spriteSheetCols)
     : spriteSheet(spriteSheet)
 {
     this->spriteWidth = spriteSheet.width / spriteSheetCols;

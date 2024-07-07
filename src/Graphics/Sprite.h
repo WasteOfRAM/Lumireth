@@ -14,8 +14,7 @@ namespace Lumireth
         float scale{1.f};
 
     public:
-        // TODO: How to take the Texture2D as a ref or ??? unique or shared ptr?
-        Sprite(Texture2D spriteSheet, int spriteSheetRows = 1, int spriteSheetCols = 1);
+        Sprite(const Texture2D& spriteSheet, int spriteSheetRows = 1, int spriteSheetCols = 1);
         ~Sprite();
 
         void SetSpriteSize(float width, float height);
