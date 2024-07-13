@@ -8,13 +8,15 @@ namespace Lumireth
     {
     private:
         Texture2D spriteSheet;
+
+    protected:
         Rectangle spriteSource;
         Rectangle dest;
         float spriteWidth, spriteHeight;
         float scale{1.f};
 
     public:
-        Sprite(const Texture2D& spriteSheet, int spriteSheetRows = 1, int spriteSheetCols = 1);
+        Sprite(const Texture2D &spriteSheet, int spriteSheetRows = 1, int spriteSheetCols = 1);
         ~Sprite();
 
         void SetSpriteSize(float width, float height);
@@ -22,7 +24,7 @@ namespace Lumireth
 
         void SetScale(float scale);
 
-        virtual void Update(float x, float y, float width, float height);
+        virtual void Update(float posX, float posY);
         virtual void Render(Color tint);
     };
 }

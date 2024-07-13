@@ -29,9 +29,9 @@ void Lumireth::Sprite::SetScale(float scale)
     this->scale = scale;
 }
 
-void Lumireth::Sprite::Update(float x, float y, float width, float height)
+void Lumireth::Sprite::Update(float posX, float posY)
 {
-    this->dest = Rectangle{x, y, width * scale, height * scale};
+    this->dest = Rectangle{posX, posY, this->spriteWidth * scale, this->spriteHeight * scale};
 }
 
 void Lumireth::Sprite::Render(Color tint)
