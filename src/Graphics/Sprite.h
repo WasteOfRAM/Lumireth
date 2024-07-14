@@ -1,13 +1,14 @@
 #pragma once
 
 #include "raylib.h"
+#include "SpriteSheet.h"
 
 namespace Lumireth
 {
     class Sprite
     {
     private:
-        Texture2D spriteSheet;
+        const SpriteSheet& spriteSheet;
 
     protected:
         Rectangle spriteSource;
@@ -16,7 +17,7 @@ namespace Lumireth
         float scale{1.f};
 
     public:
-        Sprite(const Texture2D &spriteSheet, int spriteSheetRows = 1, int spriteSheetCols = 1);
+        Sprite(const SpriteSheet& spriteSheet, int tileColumn = 0, int tileRow = 0);
         ~Sprite();
 
         void SetSpriteSize(float width, float height);

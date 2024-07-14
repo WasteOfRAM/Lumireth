@@ -1,11 +1,13 @@
 #include "Sprite.h"
 
-Lumireth::Sprite::Sprite(const Texture2D& spriteSheet, int spriteSheetRows, int spriteSheetCols)
+#include <iostream>
+
+Lumireth::Sprite::Sprite(const SpriteSheet& spriteSheet, int tileColumn, int tileRow)
     : spriteSheet(spriteSheet)
 {
-    this->spriteWidth = spriteSheet.width / spriteSheetCols;
-    this->spriteHeight = spriteSheet.height / spriteSheetRows;
-    this->spriteSource = {0.f, 0.f, this->spriteWidth, this->spriteHeight};
+    this->spriteWidth = spriteSheet.GetTexture().width / spriteSheet.GetTileColumnsCount();
+    this->spriteHeight = spriteSheet.GetTexture().height / spriteSheet.GetTileRowsCount();
+    this->spriteSource = {this->spriteWidth * tileColumn, this->spriteHeight * tileRow, this->spriteWidth, this->spriteHeight};
     this->dest = {0.f, 0.f, this->spriteWidth * this->scale, this->spriteHeight * this->scale};
 }
 
@@ -36,5 +38,5 @@ void Lumireth::Sprite::Update(float posX, float posY)
 
 void Lumireth::Sprite::Render(Color tint)
 {
-    DrawTexturePro(this->spriteSheet, this->spriteSource, this->dest, Vector2{}, 0.f, tint);
+    DrawTexturePro(this->spriteSheet.GetTexture(), this->spriteSource, this->dest, Vector2{}, 0.f, tint);
 }
