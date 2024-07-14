@@ -1,7 +1,5 @@
 #include "Sprite.h"
 
-#include <iostream>
-
 Lumireth::Sprite::Sprite(const SpriteSheet& spriteSheet, int tileColumn, int tileRow)
     : spriteSheet(spriteSheet)
 {
