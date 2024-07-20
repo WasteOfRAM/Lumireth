@@ -5,24 +5,28 @@ Lumireth::AnimatedSprite::AnimatedSprite(const SpriteSheet& spriteSheet)
 {
 }
 
+// Starting frame and line start from 1;
 Lumireth::AnimatedSprite::AnimatedSprite(const SpriteSheet &spriteSheet, int startFrame, int startLine, int endFrame, int endLine)
-    : Sprite(spriteSheet), startingFrame(startFrame), statringLine(startLine), endFrame(endFrame), endLine(endLine), currentFrame(startFrame), currentLine(startLine)
+    : Sprite(spriteSheet), startingFrame(startFrame - 1), statringLine(startLine - 1), endFrame(endFrame), endLine(endLine)
 {
+    this->currentFrame = this->startingFrame;
+    this->currentLine = this->statringLine;
 }
 
 Lumireth::AnimatedSprite::~AnimatedSprite()
 {
 }
 
+// Starting frame and line start from 1;
 void Lumireth::AnimatedSprite::SetAnimationFrames(int startFrame, int startLine, int endFrame, int endLine)
 {
-    this->startingFrame = startFrame;
-    this->statringLine = startLine;
+    this->startingFrame = startFrame - 1;
+    this->statringLine = startLine - 1;
     this->endFrame = endFrame;
     this->endLine = endLine;
 
-    this->currentFrame = startFrame;
-    this->currentLine = startLine;
+    this->currentFrame = this->startingFrame;
+    this->currentLine = this->statringLine;
 }
 
 void Lumireth::AnimatedSprite::SetFramePerSecond(int framesPreSecond)
