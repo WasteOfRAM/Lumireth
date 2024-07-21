@@ -55,7 +55,11 @@ void Lumireth::AnimatedSprite::Update(float posX, float posY)
         framesCounter = 0;
     }
 
-    this->spriteSource = Rectangle{this->spriteWidth * currentFrame, this->spriteHeight * currentLine, this->spriteWidth, this->spriteHeight};
+    this->spriteSource = Rectangle{this->spriteWidth * currentFrame,
+                                   this->spriteHeight * currentLine,
+                                   this->spriteWidth * this->orientation.y, 
+                                   this->spriteHeight * this->orientation.x};
+                                   
     this->dest = Rectangle{posX, posY, this->spriteWidth * scale, this->spriteHeight * scale};
 }
 
