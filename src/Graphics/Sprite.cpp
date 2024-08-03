@@ -19,9 +19,14 @@ void Lumireth::Sprite::SetSpriteSize(float width, float height)
     this->spriteHeight = height;
 }
 
-Vector2 Lumireth::Sprite::GetSpriteSize() const
+float Lumireth::Sprite::GetSpriteWidth() const
 {
-    return Vector2(this->spriteWidth, this->spriteHeight);
+    return this->spriteWidth;
+}
+
+float Lumireth::Sprite::GetSpriteHeight() const
+{
+    return this->spriteHeight;
 }
 
 void Lumireth::Sprite::SetScale(float scale)
@@ -44,6 +49,21 @@ Vector2 Lumireth::Sprite::GetOrientation() const
     return this->orientation;
 }
 
+void Lumireth::Sprite::SetPivot(Vector2 pivot)
+{
+    this->pivot = pivot;
+}
+
+Vector2 Lumireth::Sprite::GetPivot() const
+{
+    return this->pivot;
+}
+
+Vector2 Lumireth::Sprite::GetPosition() const
+{
+    return Vector2(this->dest.x, this->dest.y);
+}
+
 void Lumireth::Sprite::Update(float posX, float posY)
 {
     this->spriteSource.width = this->spriteWidth * this->orientation.y;
@@ -54,6 +74,5 @@ void Lumireth::Sprite::Update(float posX, float posY)
 
 void Lumireth::Sprite::Render(Color tint)
 {
-    // Origin set to bottom middle of the sprite.
-    DrawTexturePro(this->spriteSheet.GetTexture(), this->spriteSource, this->dest, Vector2{this->dest.width / 2, this->dest.height}, 0.f, tint);
+    DrawTexturePro(this->spriteSheet.GetTexture(), this->spriteSource, this->dest, this->pivot, 0.f, tint);
 }

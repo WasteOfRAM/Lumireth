@@ -21,10 +21,10 @@ namespace Lumireth
 
     public:
         AnimatedSprite(const SpriteSheet& spriteSheet);
-        AnimatedSprite(const SpriteSheet& spriteSheet, int startFrame, int startLine, int endFrame, int endLine);
+        AnimatedSprite(const SpriteSheet& spriteSheet, int startFrame, int endFrame, int startLine, int endLine);
         ~AnimatedSprite();
 
-        void SetAnimationFrames(int startFrame, int startLine, int endFrame, int endLine);
+        void SetAnimationFrames(int startFrame, int endFrame, int startLine, int endLine);
         void SetFramePerSecond(int framesPreSecond);
 
         virtual void Update(float posX, float posY) override;

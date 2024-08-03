@@ -6,7 +6,7 @@ Lumireth::AnimatedSprite::AnimatedSprite(const SpriteSheet& spriteSheet)
 }
 
 // Starting frame and line start from 1;
-Lumireth::AnimatedSprite::AnimatedSprite(const SpriteSheet &spriteSheet, int startFrame, int startLine, int endFrame, int endLine)
+Lumireth::AnimatedSprite::AnimatedSprite(const SpriteSheet &spriteSheet, int startFrame, int endFrame, int startLine, int endLine)
     : Sprite(spriteSheet), startingFrame(startFrame - 1), statringLine(startLine - 1), endFrame(endFrame), endLine(endLine)
 {
     this->currentFrame = this->startingFrame;
@@ -18,7 +18,7 @@ Lumireth::AnimatedSprite::~AnimatedSprite()
 }
 
 // Starting frame and line start from 1;
-void Lumireth::AnimatedSprite::SetAnimationFrames(int startFrame, int startLine, int endFrame, int endLine)
+void Lumireth::AnimatedSprite::SetAnimationFrames(int startFrame, int endFrame, int startLine, int endLine)
 {
     this->startingFrame = startFrame - 1;
     this->statringLine = startLine - 1;
