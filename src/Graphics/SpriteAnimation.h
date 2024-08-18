@@ -1,10 +1,11 @@
 #pragma once
 
+#include "SpriteSheet.h"
 #include "Sprite.h"
 
 namespace Lumireth
 {
-    class AnimatedSprite : public Sprite
+    class SpriteAnimation : public Sprite
     {
     private:
         int startingFrame{};
@@ -17,17 +18,17 @@ namespace Lumireth
         int currentLine{};
 
         float framesCounter{};
-        int frameSpeed{};
+        int frameSpeed{1};
 
     public:
-        AnimatedSprite(const SpriteSheet& spriteSheet);
-        AnimatedSprite(const SpriteSheet& spriteSheet, int startFrame, int endFrame, int startLine, int endLine);
-        ~AnimatedSprite();
+        SpriteAnimation(const SpriteSheet& spriteSheet, int startFrame, int endFrame, int startLine, int endLine);
+        ~SpriteAnimation();
 
         void SetAnimationFrames(int startFrame, int endFrame, int startLine, int endLine);
         void SetFramePerSecond(int framesPreSecond);
 
-        virtual void Update(float posX, float posY) override;
+        virtual void Update(float posX, float posY, float frameTime) override;
+        virtual void Render(Color tint) override;
 
     private:
         float GetFramesPerSecond() const;

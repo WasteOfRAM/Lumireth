@@ -1,17 +1,16 @@
 #pragma once
 
 #include "raylib.h"
-#include "SpriteSheet.h"
 #include "GraphicsEnums.h"
+#include "SpriteSheet.h"
 
 namespace Lumireth
 {
     class Sprite
     {
-    private:
+    protected:
         const SpriteSheet& spriteSheet;
 
-    protected:
         Rectangle spriteSource;
         Rectangle dest;
         float spriteWidth, spriteHeight;
@@ -21,26 +20,24 @@ namespace Lumireth
         Vector2 pivot{0, 0};
 
     public:
-        Sprite(const SpriteSheet& spriteSheet, int tileColumn = 0, int tileRow = 0);
-        ~Sprite();
+        Sprite(const SpriteSheet& spriteSheet);
+        ~Sprite() = default;
 
-        void SetSpriteSize(float width, float height);
-        float GetSpriteWidth() const;
-        float GetSpriteHeight() const;
+        virtual void Update(float posX, float posY, float frameTime) = 0;
+        virtual void Render(Color tint) = 0;
 
-        void SetScale(float scale);
+        virtual void SetOrientationX(Orientation upDown);
+        virtual void SetOrientationY(Orientation leftRight);
 
-        void SetOrientationX(Orientation upDown);
-        void SetOrientationY(Orientation leftRight);
+        virtual Vector2 GetOrientation() const;
 
-        Vector2 GetOrientation() const;
+        virtual void SetSpriteSize(float width, float height);
+        virtual float GetSpriteWidth() const;
+        virtual float GetSpriteHeight() const;
 
-        void SetPivot(Vector2 pivot);
-        Vector2 GetPivot() const;
+        virtual void SetScale(float scale);
 
-        Vector2 GetPosition() const;
-
-        virtual void Update(float posX, float posY);
-        virtual void Render(Color tint);
+        virtual void SetPivot(Vector2 pivot);
+        virtual Vector2 GetPivot() const;
     };
 }
