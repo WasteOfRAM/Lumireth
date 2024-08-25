@@ -1,8 +1,8 @@
 #include "SpriteAnimation.h"
 
 // Starting frame and line start from 1;
-Lumireth::SpriteAnimation::SpriteAnimation(const SpriteSheet& spriteSheet, int startFrame, int endFrame, int startLine, int endLine)
-    : Sprite(spriteSheet), startingFrame(startFrame - 1), statringLine(startLine - 1), endFrame(endFrame), endLine(endLine)
+Lumireth::SpriteAnimation::SpriteAnimation(const SpriteSheet& spriteSheet, int startFrame, int endFrame, int startLine, int endLine, int framesPreSecond = 1)
+    : Sprite(spriteSheet), startingFrame(startFrame - 1), statringLine(startLine - 1), endFrame(endFrame), endLine(endLine), frameSpeed(framesPreSecond)
 {
     this->spriteWidth = spriteSheet.GetTexture().width / spriteSheet.GetTileColumnsCount();
     this->spriteHeight = spriteSheet.GetTexture().height / spriteSheet.GetTileRowsCount();

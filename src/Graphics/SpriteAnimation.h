@@ -18,10 +18,10 @@ namespace Lumireth
         int currentLine{};
 
         float framesCounter{};
-        int frameSpeed{1};
+        int frameSpeed{};
 
     public:
-        SpriteAnimation(const SpriteSheet& spriteSheet, int startFrame, int endFrame, int startLine, int endLine);
+        SpriteAnimation(const SpriteSheet& spriteSheet, int startFrame, int endFrame, int startLine, int endLine, int framesPreSecond);
         ~SpriteAnimation();
 
         void SetAnimationFrames(int startFrame, int endFrame, int startLine, int endLine);
