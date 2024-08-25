@@ -26,6 +26,7 @@ endif()
 
 # Remove console window for Release builds.
 if(MSVC)
+  #set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS True)
 	set(CMAKE_EXE_LINKER_FLAGS_RELEASE "${CMAKE_EXE_LINKER_FLAGS} /SUBSYSTEM:WINDOWS /ENTRY:mainCRTStartup")
 endif()
 
@@ -39,4 +40,6 @@ add_custom_command(
     TARGET ${PROJECT_NAME} POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory
     ${CMAKE_SOURCE_DIR}/src/Resources $<TARGET_FILE_DIR:${PROJECT_NAME}>/Resources
+    # COMMAND ${CMAKE_COMMAND} -E copy
+    # $<TARGET_FILE:LumirethLib> $<TARGET_FILE_DIR:${PROJECT_NAME}>
 )
