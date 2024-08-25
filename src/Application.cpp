@@ -1,3 +1,5 @@
+#include "raylib.h"
+
 #include "Application.h"
 
 void Lumireth::Application::Run()
@@ -10,6 +12,7 @@ void Lumireth::Application::Run()
     SetWindowSize(this->windowWidth, this->windowHeight);
 
     SetTargetFPS(GetMonitorRefreshRate(0));
+
     //ToggleBorderlessWindowed();
 
     this->game = std::make_unique<Game>();
