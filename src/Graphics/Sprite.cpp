@@ -5,6 +5,11 @@ Lumireth::Sprite::Sprite(const SpriteSheet& spriteSheet)
 {
 }
 
+void Lumireth::Sprite::Draw(Color tint)
+{
+    DrawTexturePro(this->spriteSheet.GetTexture(), this->spriteSource, this->dest, this->pivot, 0.f, tint);
+}
+
 void Lumireth::Sprite::SetOrientationX(Orientation upDown)
 {
     this->orientation.x = static_cast<float>(upDown);

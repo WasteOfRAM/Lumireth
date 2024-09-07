@@ -24,7 +24,7 @@ namespace Lumireth
         ~Sprite() = default;
 
         virtual void Update(float posX, float posY, float frameTime) = 0;
-        virtual void Render(Color tint) = 0;
+        virtual void Draw(Color tint);
 
         virtual void SetOrientationX(Orientation upDown);
         virtual void SetOrientationY(Orientation leftRight);
