@@ -14,6 +14,5 @@ namespace Lumireth
         ~SpriteImage();
 
         virtual void Update(float posX, float posY, float frameTime) override;
-        virtual void Render(Color tint) override;
     };
 }

@@ -20,8 +20,3 @@ void Lumireth::SpriteImage::Update(float posX, float posY, float frameTime)
 
     this->dest = Rectangle{posX, posY, this->spriteWidth * scale, this->spriteHeight * scale};
 }
-
-void Lumireth::SpriteImage::Render(Color tint)
-{
-    DrawTexturePro(this->spriteSheet.GetTexture(), this->spriteSource, this->dest, this->pivot, 0.f, tint);
-}
