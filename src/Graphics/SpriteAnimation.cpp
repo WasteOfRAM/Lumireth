@@ -6,8 +6,8 @@ Lumireth::SpriteAnimation::SpriteAnimation(const SpriteSheet& spriteSheet, int s
 {
     this->spriteWidth = spriteSheet.GetTexture().width / spriteSheet.GetTileColumnsCount();
     this->spriteHeight = spriteSheet.GetTexture().height / spriteSheet.GetTileRowsCount();
-    this->spriteSource = {this->spriteWidth * startingFrame, this->spriteHeight * statringLine, this->spriteWidth, this->spriteHeight};
-    this->dest = {0.f, 0.f, this->spriteWidth * this->scale, this->spriteHeight * this->scale};
+    this->spriteSource = { this->spriteWidth * startingFrame, this->spriteHeight * statringLine, this->spriteWidth, this->spriteHeight };
+    this->dest = { 0.f, 0.f, this->spriteWidth * this->scale, this->spriteHeight * this->scale };
 
     this->currentFrame = this->startingFrame;
     this->currentLine = this->statringLine;
@@ -36,36 +36,74 @@ void Lumireth::SpriteAnimation::SetFramePerSecond(int framesPreSecond)
 
 void Lumireth::SpriteAnimation::Update(float posX, float posY, float frameTime)
 {
-    framesCounter += frameTime;
-    if (framesCounter >= this->GetFramesPerSecond())
+    // TODO: Separate the animation and dest?
+    
+    this->dest = Rectangle{ posX, posY, this->spriteWidth * scale, this->spriteHeight * scale };
+
+    if (isPlaying)
     {
-        framesCounter = 0;
-        currentFrame++;
-
-        if (currentFrame >= endFrame)
+        framesCounter += frameTime;
+        if (framesCounter >= this->GetFramesPerSecond())
         {
-            currentFrame = startingFrame;
-            currentLine++;
+            framesCounter = 0;
+            currentFrame++;
 
-            if (currentLine >= endLine)
+            if (currentFrame >= endFrame)
             {
-                currentLine = statringLine;
+                currentFrame = startingFrame;
+                currentLine++;
+
+                if (currentLine >= endLine)
+                {
+                    currentLine = statringLine;
+
+                    if (!loop)
+                    {
+                        Stop();
+                        return;
+                    }
+                }
             }
+            framesCounter = 0;
         }
-        framesCounter = 0;
     }
 
     this->spriteSource = Rectangle{ this->spriteWidth * currentFrame,
                                    this->spriteHeight * currentLine,
                                    this->spriteWidth * this->orientation.y,
                                    this->spriteHeight * this->orientation.x };
-
-    this->dest = Rectangle{ posX, posY, this->spriteWidth * scale, this->spriteHeight * scale };
 }
 
-void Lumireth::SpriteAnimation::Render(Color tint)
+void Lumireth::SpriteAnimation::Play()
 {
-    DrawTexturePro(this->spriteSheet.GetTexture(), this->spriteSource, this->dest, this->pivot, 0.f, tint);
+    this->isPlaying = true;
+}
+
+void Lumireth::SpriteAnimation::Pause()
+{
+    this->isPlaying = false;
+}
+
+void Lumireth::SpriteAnimation::Stop()
+{
+    this->isPlaying = false;
+    this->currentFrame = this->startingFrame;
+    this->currentLine = this->statringLine;
+}
+
+void Lumireth::SpriteAnimation::SetLooping(bool loop)
+{
+    this->loop = loop;
+}
+
+bool Lumireth::SpriteAnimation::IsLooping() const
+{
+    return this->loop;
+}
+
+bool Lumireth::SpriteAnimation::IsPlaying() const
+{
+    return this->isPlaying;
 }
 
 float Lumireth::SpriteAnimation::GetFramesPerSecond() const
