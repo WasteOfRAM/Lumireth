@@ -1,6 +1,6 @@
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
-set(SOURCES Application.cpp)
+set(SOURCES Application.cpp Game.cpp)
 
 add_library(LumirethLib ${SOURCES})
 

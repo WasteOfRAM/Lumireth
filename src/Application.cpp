@@ -11,13 +11,12 @@ void Lumireth::Application::Run()
 
     SetTargetFPS(GetMonitorRefreshRate(0));
 
+    this->game = std::make_unique<Game>();
+
     while (!WindowShouldClose())
     {
-        BeginDrawing();
-        ClearBackground(BLACK);
-
-
-        EndDrawing();
+        this->game->Update();
+        this->game->Render();
     }
     
     CloseWindow();
