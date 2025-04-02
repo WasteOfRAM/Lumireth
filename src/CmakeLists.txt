@@ -1,0 +1,7 @@
+include_directories(${CMAKE_CURRENT_SOURCE_DIR})
+
+set(SOURCES Application.cpp)
+
+add_library(LumirethLib ${SOURCES})
+
+target_link_libraries(LumirethLib raylib)
