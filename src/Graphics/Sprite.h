@@ -15,7 +15,9 @@ namespace Lumireth
         float spriteWidth;
         float spriteHeight;
 
+        // Uniform scale multiplier applyed to the sprite Height and Width size in pixels.
         float scale{1};
+
         float rotation{0.f};
 
         // The point in the sprite that will be used as origin for location, rotation and scale.
