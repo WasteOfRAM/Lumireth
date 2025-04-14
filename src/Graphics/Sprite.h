@@ -1,5 +1,6 @@
 #pragma once
 
+#include "GraphicsEnums.h"
 #include "SpriteSheet.h"
 
 namespace Lumireth
@@ -11,18 +12,15 @@ namespace Lumireth
 
         Rectangle spriteSource;
         Rectangle transform;
-        
-        float spriteWidth;
-        float spriteHeight;
 
         // Uniform scale multiplier applyed to the sprite Height and Width size in pixels.
-        float scale{1};
+        float scale{ 1 };
 
-        float rotation{0.f};
+        float rotation{ 0.f };
 
         // The point in the sprite that will be used as origin for location, rotation and scale.
         // Pixel point from 0 to spriteWidth and 0 to spriteHeight.
-        Vector2 origin{0, 0};
+        Vector2 origin{ 0, 0 };
 
     public:
         // spriteOriginX and spriteOriginY - Sprite location in the sprite sheet in pixels.
@@ -36,6 +34,8 @@ namespace Lumireth
 
         virtual void SetRotation(float rotation);
         virtual float GetRotation() const;
+
+        virtual void SetOrientation(Orientation spriteOrientation);
 
         virtual void SetScale(float scale);
         virtual float GetScale() const;
