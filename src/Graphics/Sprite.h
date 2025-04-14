@@ -6,7 +6,7 @@ namespace Lumireth
 {
     class Sprite
     {
-    private:
+    protected:
         const SpriteSheet* spriteSheet;
 
         Rectangle spriteSource;
