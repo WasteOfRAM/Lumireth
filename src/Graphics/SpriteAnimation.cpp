@@ -39,10 +39,10 @@ void Lumireth::SpriteAnimation::FrameUpdate(float frameTime)
         }
     }
 
-    this->spriteSource = Rectangle{ this->spriteWidth * currentFrame,
-                                    this->spriteHeight * currentLine,
-                                    this->spriteWidth,
-                                    this->spriteHeight };
+    this->spriteSource = Rectangle{ this->spriteSource.width * currentFrame,
+                                    this->spriteSource.height * currentLine,
+                                    this->spriteSource.width,
+                                    this->spriteSource.height };
 }
 
 void Lumireth::SpriteAnimation::SetAnimationFrames(int startFrame, int endFrame, int startLine, int endLine, int framesPerSecond)
