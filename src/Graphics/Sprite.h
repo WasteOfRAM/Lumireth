@@ -35,6 +35,7 @@ namespace Lumireth
         virtual void SetRotation(float rotation);
         virtual float GetRotation() const;
 
+        // Sets texture left rigth orientation. (Flips the texture)
         virtual void SetOrientation(Orientation spriteOrientation);
 
         virtual void SetScale(float scale);
