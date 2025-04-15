@@ -1,7 +1,7 @@
 #include "Sprite.h"
 
 Lumireth::Sprite::Sprite(SpriteSheet* spriteSheet, float spriteWidth, float spriteHeight, float spriteOriginX, float spriteOriginY)
-    : spriteSheet(spriteSheet), spriteWidth(spriteWidth), spriteHeight(spriteHeight)
+    : spriteSheet(spriteSheet)
 {
     this->spriteSource.width = spriteWidth;
     this->spriteSource.height = spriteHeight;
@@ -42,6 +42,11 @@ void Lumireth::Sprite::SetRotation(float rotation)
 float Lumireth::Sprite::GetRotation() const
 {
     return this->rotation;
+}
+
+void Lumireth::Sprite::SetOrientation(Orientation spriteOrientation)
+{
+    this->spriteSource.width *= static_cast<int>(spriteOrientation);
 }
 
 void Lumireth::Sprite::SetScale(float scale)
