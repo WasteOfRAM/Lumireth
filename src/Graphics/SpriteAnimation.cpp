@@ -53,6 +53,9 @@ void Lumireth::SpriteAnimation::SetAnimationFrames(int startFrame, int endFrame,
     this->endLine = endLine;
 
     this->framesPerSecond = framesPerSecond;
+
+    this->currentFrame = this->startingFrame;
+    this->currentLine = this->statringLine;
 }
 
 void Lumireth::SpriteAnimation::Play()
