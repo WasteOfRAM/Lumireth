@@ -44,5 +44,6 @@ namespace Lumireth
         // Origin in pixels from the original unscaled sprite starting from 0 no matter the sprite position in pixels in the sprite sheet.
         // "x" from the vector is height and "y" is width 
         virtual void SetOrigin(Vector2 origin);
+        virtual Vector2 GetOrigin() const;
     };
 }
