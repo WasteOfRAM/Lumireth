@@ -67,3 +67,8 @@ void Lumireth::Sprite::SetOrigin(Vector2 origin)
     this->origin.x = origin.x * this->scale;
     this->origin.y = origin.y * this->scale;
 }
+
+Vector2 Lumireth::Sprite::GetOrigin() const
+{
+    return this->origin;
+}

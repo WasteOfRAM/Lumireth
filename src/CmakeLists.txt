@@ -1,8 +1,9 @@
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
 file(GLOB GRAPHICS "Graphics/*.cpp")
+file(GLOB COLLIDER "Collider/*.cpp")
 
-set(SOURCES Application.cpp Game.cpp ${GRAPHICS})
+set(SOURCES Application.cpp Game.cpp ${GRAPHICS} ${COLLIDER})
 
 add_library(LumirethLib ${SOURCES})
 
