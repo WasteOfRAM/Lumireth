@@ -1,5 +1,13 @@
 #include "Entity.h"
 
+Lumireth::Entity::Entity()
+{
+}
+
+Lumireth::Entity::~Entity()
+{
+}
+
 void Lumireth::Entity::SetLocation(Vector2 location)
 {
     this->location = location;
