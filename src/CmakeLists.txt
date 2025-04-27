@@ -4,8 +4,9 @@ file(GLOB GRAPHICS "Graphics/*.cpp")
 file(GLOB COLLIDER "Collider/*.cpp")
 file(GLOB ENTITY "Entity/*.cpp")
 file(GLOB GAME "Game/*.cpp")
+file(GLOB COMPONENTS "Components/*.cpp")
 
-set(SOURCES Application.cpp Game.cpp ${GRAPHICS} ${COLLIDER} ${ENTITY} ${GAME})
+set(SOURCES Application.cpp Game.cpp ${GRAPHICS} ${COLLIDER} ${ENTITY} ${GAME} ${COMPONENTS})
 
 add_library(LumirethLib ${SOURCES})
 
