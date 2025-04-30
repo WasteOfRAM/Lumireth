@@ -1,6 +1,7 @@
 #pragma once
 
 #include <unordered_map>
+#include <string>
 
 #include "Graphics/SpriteAnimation.h"
 
@@ -15,8 +16,9 @@ namespace Lumireth
         AnimationComponent();
         ~AnimationComponent();
 
-        void AddAnimation(std::string name, SpriteAnimation* animation);
-        void SetActiveAnimation(std::string name);
+        void AddAnimation(const std::string& name, SpriteAnimation* animation);
+        void SetActiveAnimation(const std::string& name);
+        SpriteAnimation* GetAnimation(const std::string& name) const;
 
         SpriteAnimation* activeAnimation;
     };
