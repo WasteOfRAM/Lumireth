@@ -1,6 +1,5 @@
 #include "Components/AnimationComponent.h"
 
-
 Lumireth::AnimationComponent::AnimationComponent()
 {
 }
@@ -16,7 +15,9 @@ void Lumireth::AnimationComponent::AddAnimation(const std::string& name, SpriteA
 
 void Lumireth::AnimationComponent::SetActiveAnimation(const std::string& name)
 {
-    this->activeAnimation = this->animations[name];
+    auto it = this->animations.find(name);
+    this->activeAnimation.name = it->first;
+    this->activeAnimation.animation = it->second;
 }
 
 Lumireth::SpriteAnimation* Lumireth::AnimationComponent::GetAnimation(const std::string& name) const

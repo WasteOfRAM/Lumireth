@@ -7,6 +7,12 @@
 
 namespace Lumireth
 {
+    struct Animation
+    {
+        std::string name;
+        SpriteAnimation* animation;
+    };
+    
     class AnimationComponent
     {
     private:
@@ -20,6 +26,6 @@ namespace Lumireth
         void SetActiveAnimation(const std::string& name);
         SpriteAnimation* GetAnimation(const std::string& name) const;
 
-        SpriteAnimation* activeAnimation;
+        Animation activeAnimation;
     };
 }
