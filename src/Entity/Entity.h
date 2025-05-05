@@ -14,6 +14,7 @@ namespace Lumireth
         ~Entity();
 
         virtual void SetLocation(Vector2 location);
+        virtual void SetLocation(float posX, float posY);
         virtual Vector2 GetLocation() const;
 
         virtual void Update(float frameTime) = 0;

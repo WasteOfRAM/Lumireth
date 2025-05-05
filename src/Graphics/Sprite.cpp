@@ -29,6 +29,12 @@ void Lumireth::Sprite::SetLocation(float posX, float posY)
     this->transform.y = posY;
 }
 
+void Lumireth::Sprite::SetLocation(Vector2 location)
+{
+    this->transform.x = location.x;
+    this->transform.y = location.y;
+}
+
 Vector2 Lumireth::Sprite::GetLocation() const
 {
     return Vector2{this->transform.x, this->transform.y};

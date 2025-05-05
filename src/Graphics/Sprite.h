@@ -30,6 +30,7 @@ namespace Lumireth
         virtual void Draw(Color tint = WHITE);
 
         virtual void SetLocation(float posX, float posY);
+        virtual void SetLocation(Vector2 location);
         virtual Vector2 GetLocation() const;
 
         virtual void SetRotation(float rotation);
