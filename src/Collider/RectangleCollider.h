@@ -16,5 +16,7 @@ public:
     
     virtual void SetLocation(Vector2 location) override;
 
+    Rectangle GetColliderShape() const;
+
     virtual void Debug() override;
 };

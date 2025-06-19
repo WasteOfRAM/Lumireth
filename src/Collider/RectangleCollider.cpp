@@ -31,6 +31,11 @@ void RectangleCollider::SetLocation(Vector2 location)
     this->collider.y = location.y;
 }
 
+Rectangle RectangleCollider::GetColliderShape() const
+{
+    return this->collider;
+}
+
 void RectangleCollider::Debug()
 {
     DrawRectangleRec(this->collider, Color(102, 191, 255, 100));
