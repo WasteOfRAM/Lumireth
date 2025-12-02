@@ -26,7 +26,7 @@ void Lumireth::SpriteAnimation::FrameUpdate(float frameTime)
 
                 if (currentLine >= endLine)
                 {
-                    currentLine = statringLine;
+                    currentLine = startingLine;
 
                     if (!loop)
                     {
@@ -49,13 +49,13 @@ void Lumireth::SpriteAnimation::SetAnimationFrames(int startFrame, int endFrame,
 {
     this->startingFrame = startFrame - 1;
     this->endFrame = endFrame;
-    this->statringLine = startLine - 1;
+    this->startingLine = startLine - 1;
     this->endLine = endLine;
 
     this->framesPerSecond = framesPerSecond;
 
     this->currentFrame = this->startingFrame;
-    this->currentLine = this->statringLine;
+    this->currentLine = this->startingLine;
 }
 
 void Lumireth::SpriteAnimation::Play()
@@ -72,7 +72,7 @@ void Lumireth::SpriteAnimation::Stop()
 {
     this->isPlaying = false;
     this->currentFrame = this->startingFrame;
-    this->currentLine = this->statringLine;
+    this->currentLine = this->startingLine;
 }
 
 void Lumireth::SpriteAnimation::SetLooping(bool loop)

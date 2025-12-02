@@ -8,7 +8,7 @@ namespace Lumireth
     {
     private:
         int startingFrame{};
-        int statringLine{};
+        int startingLine{};
 
         int endFrame{};
         int endLine{};
